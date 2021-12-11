@@ -51,6 +51,3 @@ module "dbtier" {
   private_subnet2 = module.networks.private-subnet2-id
   db_security_groups = module.networks.dbtier-sg
 }
-
-
-
