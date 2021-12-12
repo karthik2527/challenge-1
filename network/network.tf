@@ -96,11 +96,11 @@ resource "aws_security_group" "dbtier-sg" {
 
 resource "aws_security_group" "web-tier-sg" {
   name = "web-tier-sg"
-  description = "SG to allow public traffic into the ALB"
+  description = "allow user access coming through NLB"
   vpc_id = aws_vpc.webappvpc.id
 
   ingress {
-    description = "https access from alb"
+    description = "https access from nlb"
     from_port = 443
     to_port = 443
     protocol = "tcp"
@@ -138,6 +138,3 @@ resource "aws_nat_gateway" "nat-gw-ec2" {
   }
   depends_on = [aws_internet_gateway.webappigw]
 }
-
-
-
